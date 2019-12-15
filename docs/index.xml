@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homoglyphs</title>
-    <link>http://stevenacoffman.github.io/homoglyphs/</link>
+    <link>https://stevenacoffman.github.io/homoglyphs/</link>
     <description>Recent content on Homoglyphs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://stevenacoffman.github.io/homoglyphs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stevenacoffman.github.io/homoglyphs/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
