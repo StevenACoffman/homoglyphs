@@ -1,6 +1,5 @@
 <script>
-	export let input;
-	export let output;
+	export let output = "Type Something!";
 
 	function homoglyph(input) {
 	  const homoglyphs = {
@@ -37,17 +36,15 @@
 	    z: ["\u0290", "\u017c"]
 	  };
 		if (input === undefined || input === "" ) {
-		return "Type something!"
+		return "Empty Input!"
 		}
 	  return input
 	    .split("")
 	    .map(item => {
-	      //console.log(item+"!"); // key
 	      if (homoglyphs.hasOwnProperty(item)) {
-	        //console.log(item); // key
 	        return homoglyphs[item][
 	          Math.floor(Math.random() * homoglyphs[item].length)
-	        ]; // value
+	        ];
 	      } else {
 	        return item;
 	      }
