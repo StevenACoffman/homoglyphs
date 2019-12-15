@@ -1,4 +1,4 @@
-baseURL = "https://stevenacoffman.github.io/homoglyphs/"
+baseURL = "https://stevenacoffman.github.io/homoglyphs"
 languageCode = "en-us"
 title = "Homoglyphs"
 publishDir = "docs"
