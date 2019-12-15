@@ -1,5 +1,5 @@
 <script>
-	export let output = "Type Something!";
+	export let input="";
 
 	function homoglyph(input) {
 	  const homoglyphs = {
@@ -36,15 +36,17 @@
 	    z: ["\u0290", "\u017c"]
 	  };
 		if (input === undefined || input === "" ) {
-		return "Empty Input!"
+		  return "Empty Input!"
 		}
 	  return input
 	    .split("")
 	    .map(item => {
+	      //console.log(item+"!"); // key
 	      if (homoglyphs.hasOwnProperty(item)) {
+	        //console.log(item); // key
 	        return homoglyphs[item][
 	          Math.floor(Math.random() * homoglyphs[item].length)
-	        ];
+	        ]; // value
 	      } else {
 	        return item;
 	      }
@@ -52,10 +54,6 @@
 	    .join("");
 	}
 
-	function handleKeydown(event) {
-		const text = event.target.value;
-		output = homoglyph(event.target.value);
-	}
 
 </script>
 
@@ -65,6 +63,6 @@
 	}
 </style>
 
-<input on:keydown={handleKeydown}>
+<input bind:value={input} placeholder="enter your name">
 
-<h1>{output}</h1>
+<h1>{homoglyph(input)}</h1>
