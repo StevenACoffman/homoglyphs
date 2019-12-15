@@ -1,3 +1,5 @@
-baseURL = "http://example.org/"
+baseURL = "http://stevenacoffman.github.io/homoglyphs"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Homoglyphs"
+publishDir = "docs"
+disableKinds = ["section", "taxonomy", "taxonomyTerm"]
