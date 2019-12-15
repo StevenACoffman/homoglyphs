@@ -36,6 +36,9 @@
 	    y: ["\u0443", "\u00fd"],
 	    z: ["\u0290", "\u017c"]
 	  };
+		if (input === undefined || input === "" ) {
+		return "Type something!"
+		}
 	  return input
 	    .split("")
 	    .map(item => {
@@ -67,4 +70,4 @@
 
 <input on:keydown={handleKeydown}>
 
-<h1>Hello, {output}!</h1>
+<h1>{output}</h1>
