@@ -1,5 +1,6 @@
 <script>
 	export let input="";
+	export let useHomoglyphs=true;
 
 	function homoglyph(input) {
 	  const homoglyphs = {
@@ -35,25 +36,81 @@
 	    y: ["\u0443", "\u00fd"],
 	    z: ["\u0290", "\u017c"]
 	  };
+		const alphabet = {
+	    A: ['🅰️'],
+	    B: ['🅱️️'],
+	    C: [ '©️', '☪️', '🗜️' ],
+	    D: ['↩️'],
+	    E: ['🅴','📧'],
+	    F: ['🎏'],
+	    G: ['🅶','⛽️'],
+	    H: ['🏩','♓️'],
+	    I: ['💈','ℹ️'],
+	    J: ['☔', '🎷', '🗾'],
+	    K: ['🅺', '🎋'],
+	    L: ['👢', '🕒'],
+	    M: [ 'Ⓜ️', '♏️', '♍️', '〽' ],
+	    N: ['🅽','📈'],
+	    O: ['🅾️', '⭕️', '💍'],
+	    P: ['🅿️'],
+	    Q: ['🍳','🍭','♌','🇶','ℚ','℺'],
+	    R: ['Ⓡ','®️'],
+	    S: [ '💰', '⚡️' ],
+	    T: ['🏋', '✝️'],
+	    U: ['🐋', '⛎'],
+	    V: ['✌️️', '♈️'],
+	    W: ['👐','〰️'],
+	    X: [ '❎', '❌', '✖️', '🙅' ],
+	    Y: ['🌱', '🍸'],
+	    Z: ['💤'],
+	    '!': [ '❗️', '❕' ],
+	    '?': [ '❓', '❔' ],
+	    '#': ['#️⃣'],
+	    '*': ['*️⃣'],
+	    '+': ['➕'],
+	    0: ['0️⃣'],
+	    1: ['1️⃣'],
+	    2: ['2️⃣'],
+	    3: ['3️⃣'],
+	    4: ['4️⃣'],
+	    5: ['5️⃣'],
+	    6: ['6️⃣'],
+	    7: ['7️⃣'],
+	    8: ['8️⃣'],
+	    9: ['9️⃣']
+	};
 		if (input === undefined || input === "" ) {
 		  return "Empty Input!"
 		}
+		if(useHomoglyphs) {
 	  return input
 	    .split("")
 	    .map(item => {
-	      //console.log(item+"!"); // key
 	      if (homoglyphs.hasOwnProperty(item)) {
-	        //console.log(item); // key
 	        return homoglyphs[item][
 	          Math.floor(Math.random() * homoglyphs[item].length)
-	        ]; // value
+	        ];
 	      } else {
 	        return item;
 	      }
 	    })
 	    .join("");
+			} else {
+			return input
+				.toUpperCase()
+		    .split("")
+		    .map(item => {
+		      if (alphabet.hasOwnProperty(item)) {
+		        return alphabet[item][
+		          Math.floor(Math.random() * alphabet[item].length)
+		        ];
+		      } else {
+		        return item;
+		      }
+		    })
+		    .join("");
+			}
 	}
-
 
 </script>
 
@@ -63,6 +120,10 @@
 	}
 </style>
 
-<input bind:value={input} placeholder="enter your name">
+<input bind:value={input} placeholder="enter some text">
+<label>
+	<input type=checkbox checked={useHomoglyphs}  bind:checked={useHomoglyphs}>
+	Yes! Use homoglyphs instead of Emoji
+</label>
 
-<h1>{homoglyph(input)}</h1>
+<h1>{homoglyph(input, useHomoglyphs)}</h1>
